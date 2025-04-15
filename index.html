@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>答案之書｜碰碰卡</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Serif TC', serif;
+      background: radial-gradient(ellipse at top, #dce3f3 0%, #a8b0c6 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #222;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    #answer {
+      background: #ffffffcc;
+      padding: 1.8rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      font-size: 1.4rem;
+      max-width: 80%;
+      margin-top: 1rem;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      background: #333;
+      color: #fff;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>📘 答案之書</h1>
+  <div id="answer">正在召喚答案...</div>
+  <button onclick="getAnswer()">再問一次 ✨</button>
+
+  <audio id="sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3e3c857f8a.mp3"></audio>
+  <script>
+    const answers = [
+      "現在就行動吧。",
+      "等待更好的時機。",
+      "相信你的直覺。",
+      "再觀察一下情勢。",
+      "你早就知道答案了。",
+      "放下，反而是開始。",
+      "絕對值得一試。",
+      "也許不是現在。",
+      "不急，宇宙有安排。",
+      "勇敢踏出那一步。",
+      "會有意想不到的轉機。",
+      "試著換個角度思考。",
+      "這是一個機會。",
+      "與他人討論看看。",
+      "留意生活中的小提示。",
+      "你的願望正在實現中。"
+    ];
+
+    function getAnswer() {
+      const random = Math.floor(Math.random() * answers.length);
+      document.getElementById("answer").innerText = answers[random];
+      document.getElementById("sound").play();
+    }
+
+    window.onload = getAnswer;
+  </script>
+</body>
+</html>
